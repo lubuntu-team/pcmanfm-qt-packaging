@@ -1,3 +1,9 @@
+pcmanfm-qt (0.13.0-2ubuntu1) UNRELEASED; urgency=medium
+
+  * Update Vcs-* and Maintainer for maintaining in Lubuntu.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sat, 14 Jul 2018 18:08:44 -0500
+
 pcmanfm-qt (0.13.0-2) unstable; urgency=medium
 
   * Switch to unstable
