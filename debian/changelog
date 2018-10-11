@@ -1,3 +1,9 @@
+pcmanfm-qt (0.13.0-2ubuntu2) cosmic; urgency=medium
+
+  * No-change rebuild for changes in libfm-qt.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Wed, 10 Oct 2018 21:00:58 -0500
+
 pcmanfm-qt (0.13.0-2ubuntu1) cosmic; urgency=medium
 
   * Update Vcs-* and Maintainer for maintaining in Lubuntu.
