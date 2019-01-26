@@ -1,3 +1,9 @@
+pcmanfm-qt (0.14.0-0ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sat, 26 Jan 2019 00:55:44 -0600
+
 pcmanfm-qt (0.13.0-2ubuntu2) cosmic; urgency=medium
 
   * No-change rebuild for changes in libfm-qt.
