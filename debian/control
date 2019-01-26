@@ -31,7 +31,7 @@ Depends: ${misc:Depends},
          default-dbus-session-bus | dbus-session-bus | dbus-x11,
          desktop-file-utils,
          libfm-modules,
-         libfm-qt5 (>= 0.13.1~),
+         libfm-qt6 (>= 0.14.0),
          lxqt-sudo
 Recommends: eject,
             ffmpegthumbnailer,
