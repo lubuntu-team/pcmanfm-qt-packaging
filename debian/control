@@ -10,13 +10,13 @@ Section: x11
 Priority: optional
 Build-Depends: debhelper (>= 12),
                libexif-dev,
-               libfm-qt-dev (>= 0.13.1~),
+               libfm-qt-dev (>= 0.14.0),
                libkf5windowsystem-dev,
                libmenu-cache-dev,
                libqt5svg5-dev,
                libqt5x11extras5-dev,
                libx11-dev,
-               lxqt-build-tools (>= 0.5.0~),
+               lxqt-build-tools (>= 0.6.0),
 Standards-Version: 4.3.0
 Vcs-Browser: https://phab.lubuntu.me/source/pcmanfm-qt/
 Vcs-Git: https://phab.lubuntu.me/source/pcmanfm-qt.git
