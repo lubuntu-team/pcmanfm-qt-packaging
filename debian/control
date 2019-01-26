@@ -50,3 +50,14 @@ Description: extremely fast and lightweight file and desktop icon manager
  .
  Libfm-Qt is a companion library providing components to build desktop file
  managers.
+
+Package: pcmanfm-qt-l10n
+Architecture: all
+Multi-Arch: foreign
+Section: localization
+Depends: ${misc:Depends},
+         qttranslations5-l10n
+Breaks: pcmanfm-qt (<< 0.11.1)
+Replaces: pcmanfm-qt (<< 0.11.1)
+Description: Language package for pcmanfm-qt
+ This package contains the l10n files needed by pcmanfm-qt.
