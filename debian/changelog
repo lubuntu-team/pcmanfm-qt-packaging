@@ -1,3 +1,9 @@
+pcmanfm-qt (0.14.1-0ubuntu2) eoan; urgency=medium
+
+  * Changed thumbnail view icon to view-preview
+
+ -- Hans P Möller <hmollercl@lubuntu.me>  Sat, 07 Sep 2019 12:34:58 -0400
+
 pcmanfm-qt (0.14.1-0ubuntu1) disco; urgency=medium
 
   * New upstream release.
