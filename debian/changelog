@@ -1,3 +1,9 @@
+pcmanfm-qt (0.14.1-0ubuntu3) eoan; urgency=medium
+
+  * Drop patch change-thumbnail-view-icon.patch
+
+ -- apt-ghetto <apt-ghetto@lubuntu.me>  Sun, 29 Sep 2019 11:19:46 +0200
+
 pcmanfm-qt (0.14.1-0ubuntu2) eoan; urgency=medium
 
   * Changed thumbnail view icon to view-preview
