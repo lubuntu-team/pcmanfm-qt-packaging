@@ -1,3 +1,9 @@
+pcmanfm-qt (0.15.0-0ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 30 Apr 2020 23:58:12 -0500
+
 pcmanfm-qt (0.14.1-0ubuntu3) eoan; urgency=medium
 
   * Drop patch change-thumbnail-view-icon.patch
