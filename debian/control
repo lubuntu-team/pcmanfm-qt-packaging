@@ -29,7 +29,7 @@ Architecture: any
 Depends: default-dbus-session-bus | dbus-session-bus | dbus-x11,
          desktop-file-utils,
          libfm-modules,
-         libfm-qt6 (>= 0.14.0),
+         libfm-qt7 (>= 0.15.0),
          lxqt-sudo,
          ${misc:Depends},
          ${shlibs:Depends}
