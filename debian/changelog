@@ -1,3 +1,32 @@
+pcmanfm-qt (0.16.0-1ubuntu2) hirsute; urgency=low
+
+  [ Raman Sarda ]
+  * New upstream version.
+  * Bump debhelper-compat requirement to 13.
+  * Drop empty series file.
+  * Update dependencies.
+
+ -- Raman Sarda <theloudspeaker@disroot.org>  Mon, 22 Feb 2021 01:37:46 +0530
+
+pcmanfm-qt (0.16.0-1) unstable; urgency=medium
+
+  [ Alf Gaida ]
+  * Switched to gbp
+  * Bumped Standards-Version to 4.4.0, no changes needed
+
+  [ Debian Janitor ]
+  * Fix field name typo in debian/upstream/metadata (Repository-Browser =>
+    Repository-Browse).
+  * Set upstream metadata fields: Repository.
+  * Remove obsolete field Name from debian/upstream/metadata (already present in
+    machine-readable debian/copyright).
+  * Update standards version to 4.5.0, no changes needed.
+
+  [ Andrew Lee (李健秋) ]
+  * New upstream release. (Closes: #978174)
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Thu, 07 Jan 2021 17:33:42 +0800
+
 pcmanfm-qt (0.15.0-0ubuntu1) groovy; urgency=medium
 
   * New upstream release.
@@ -8,6 +37,30 @@ pcmanfm-qt (0.15.0-0ubuntu1) groovy; urgency=medium
   * Migrate to debhelper-compat.
 
  -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 04 Jun 2020 14:18:48 -0500
+
+pcmanfm-qt (0.14.1-3) unstable; urgency=medium
+
+  * Enhanched the fix and included pcmanfm/settings.cpp - the fallback
+    settings.
+
+ -- Alf Gaida <agaida@siduction.org>  Sun, 12 May 2019 01:41:32 +0200
+
+pcmanfm-qt (0.14.1-2) unstable; urgency=medium
+
+  * Starting pcmanfm-qt as root session need a running dbus user-session
+    Bug was: pcmanfm-qt does not start as root on Debian live (Closes: #928818)
+    Thanks  adrian15 <adrian15sgd@gmail.com> for spotting this.
+
+ -- Alf Gaida <agaida@siduction.org>  Sat, 11 May 2019 20:38:43 +0200
+
+pcmanfm-qt (0.14.1-1) unstable; urgency=medium
+
+  * Cherry-picking upstream release 0.14.1.
+  * Bumped minimum version libfm-qt-dev (>= 0.14.1~)
+  * Depend now on libfm-qt6 (>= 0.14.1~)
+  * Improved the description of the language package
+
+ -- Alf Gaida <agaida@siduction.org>  Sun, 24 Feb 2019 23:23:24 +0100
 
 pcmanfm-qt (0.14.1-0ubuntu3) eoan; urgency=medium
 
@@ -27,6 +80,22 @@ pcmanfm-qt (0.14.1-0ubuntu1) disco; urgency=medium
   * Run wrap-and-sort.
 
  -- Simon Quigley <tsimonq2@ubuntu.com>  Sat, 09 Mar 2019 13:23:17 -0600
+
+pcmanfm-qt (0.14.0-1) unstable; urgency=medium
+
+  * Cherry-picking upstream release 0.14.0.
+  * Bumped Standards to 4.3.0, no changes needed
+  * Dropped d/compat, use debhelper-compat = 12, no changes needed
+  * Fixed years in d/copyright
+  * Bumped minimum version libfm-qt-dev (>= 0.14.0~)
+  * Bumped minimum version lxqt-build-tools (>= 0.6.0~)
+  * Depend now on libfm-qt6 (>= 0.14.0~)
+  * Removed obsolete PULL_TRANSLATIONS= OFF from dh_auto_configure
+  * Added Build-Depends-Package field to symbols
+  * Added l10n-package, moved from lxqt-l10n
+  * Added d/upstream/metadata
+
+ -- Alf Gaida <agaida@siduction.org>  Sun, 27 Jan 2019 19:40:51 +0100
 
 pcmanfm-qt (0.14.0-0ubuntu2) disco; urgency=medium
 
@@ -423,3 +492,4 @@ pcmanfm-qt (0.9.0+20150816-1) unstable; urgency=medium
   * Warpped lines in copyright.
 
  -- Andrew Lee (李健秋) <ajqlee@debian.org>  Mon, 17 Aug 2015 21:04:54 +0800
+

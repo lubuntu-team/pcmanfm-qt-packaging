@@ -8,15 +8,15 @@ Uploaders: Alf Gaida <agaida@siduction.org>,
            Yuan CHAO <yuanchao@gmail.com>
 Section: x11
 Priority: optional
-Build-Depends: debhelper-compat (= 12),
+Build-Depends: debhelper-compat (= 13),
                libexif-dev,
-               libfm-qt-dev (>= 0.15.0),
+               libfm-qt-dev (>= 0.16.0~),
                libkf5windowsystem-dev,
                libmenu-cache-dev,
                libqt5svg5-dev,
                libqt5x11extras5-dev,
                libx11-dev,
-               lxqt-build-tools (>= 0.7.0)
+               lxqt-build-tools (>= 0.8.0~)
 Standards-Version: 4.5.0
 Vcs-Browser: https://phab.lubuntu.me/source/pcmanfm-qt/
 Vcs-Git: https://phab.lubuntu.me/source/pcmanfm-qt.git
@@ -28,11 +28,8 @@ Package: pcmanfm-qt
 Architecture: any
 Depends: default-dbus-session-bus | dbus-session-bus | dbus-x11,
          desktop-file-utils,
-         libfm-modules,
-         libfm-qt7 (>= 0.15.0),
-         lxqt-sudo,
-         ${misc:Depends},
-         ${shlibs:Depends}
+         libfm-qt8 (>= 0.16.0~),
+         lxqt-sudo
 Recommends: eject,
             ffmpegthumbnailer,
             gvfs-backends,
