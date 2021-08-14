@@ -1,3 +1,16 @@
+pcmanfm-qt (0.17.0-0ubuntu1) impish; urgency=medium
+
+  * New upstream release 0.17.0
+  * Update debian/control
+    - Use libfm-qt 0.17.1
+    - Use lxqt-build-tools 0.9.0
+    - Bump Standards-Version to 4.5.1
+    - Readd ${misc:Depends} and ${shlibs:Depends}
+    - Extend description of pcmanfm-qt-l10n
+  * Update debian/copyright
+
+ -- apt-ghetto <apt-ghetto@protonmail.com>  Tue, 10 Aug 2021 15:28:47 +0200
+
 pcmanfm-qt (0.16.0-1ubuntu2) hirsute; urgency=low
 
   [ Raman Sarda ]
