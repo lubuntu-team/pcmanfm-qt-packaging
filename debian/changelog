@@ -1,8 +1,9 @@
-pcmanfm-qt (1.1.0-0ubuntu1) UNRELEASED; urgency=medium
+pcmanfm-qt (1.1.0-0ubuntu1) kinetic; urgency=medium
 
   * New upstream release.
+  * Update build dependencies and remove some old Breaks/Replaces.
 
- -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 02 Jun 2022 09:31:24 -0500
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 02 Jun 2022 09:35:43 -0500
 
 pcmanfm-qt (0.17.0-0ubuntu1) impish; urgency=medium
 
