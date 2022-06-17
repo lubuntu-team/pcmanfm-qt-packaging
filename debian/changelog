@@ -1,3 +1,11 @@
+pcmanfm-qt (1.1.0-0ubuntu3) kinetic; urgency=medium
+
+  * Create a new patch from thin air (woah, shiny!) which adds the Lubuntu
+    Manual as an optional desktop shortcut. Spread the good work Lyn has been
+    doing for a few years now. :)
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 16 Jun 2022 23:06:52 -0400
+
 pcmanfm-qt (1.1.0-0ubuntu2) kinetic; urgency=medium
 
   * Cherry-pick upstream commit fixing some scaling oddities:

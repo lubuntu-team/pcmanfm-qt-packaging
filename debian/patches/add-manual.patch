@@ -1,0 +1,105 @@
+Description: Add a desktop shortcut for the Lubuntu Manual
+Forwarded: eventually
+Author: Simon Quigley <tsimonq2@lubuntu.me>
+Last-Update: 2022-06-16
+---
+diff --git a/pcmanfm/desktop-preferences.ui b/pcmanfm/desktop-preferences.ui
+index d73e731..459926a 100644
+--- a/pcmanfm/desktop-preferences.ui
++++ b/pcmanfm/desktop-preferences.ui
+@@ -573,6 +573,17 @@ are left clicked, even when it is not the default file manager.</string>
+             </property>
+            </widget>
+           </item>
++          <item>
++           <widget class="QCheckBox" name="lubuntuManualBox">
++            <property name="text">
++             <string>Lubuntu Manual</string>
++            </property>
++            <property name="icon">
++             <iconset theme="help-browser">
++              <normaloff>.</normaloff>.</iconset>
++            </property>
++           </widget>
++          </item>
+          </layout>
+         </widget>
+        </item>
+diff --git a/pcmanfm/desktoppreferencesdialog.cpp b/pcmanfm/desktoppreferencesdialog.cpp
+index 87fcfc2..a691d0c 100644
+--- a/pcmanfm/desktoppreferencesdialog.cpp
++++ b/pcmanfm/desktoppreferencesdialog.cpp
+@@ -204,6 +204,9 @@ void DesktopPreferencesDialog::applySettings()
+   if(ui.networkBox->isChecked()) {
+       ds << QLatin1String("Network");
+   }
++  if(ui.lubuntuManualBox->isChecked()) {
++      ds << QLatin1String("Lubuntu Manual");
++  }
+   settings.setDesktopShortcuts(ds);
+ 
+   settings.setDesktopCellMargins(QSize(ui.hMargin->value(), ui.vMargin->value()));
+diff --git a/pcmanfm/desktopwindow.cpp b/pcmanfm/desktopwindow.cpp
+index 78e8d2f..3edb7f0 100644
+--- a/pcmanfm/desktopwindow.cpp
++++ b/pcmanfm/desktopwindow.cpp
+@@ -276,6 +276,16 @@ void DesktopWindow::updateShortcutsFromSettings(Settings& settings) {
+             paths.push_back(Fm::FilePath::fromLocalPath(network.toStdString().c_str()));
+         }
+     }
++    // Lubuntu Manual
++    if(ds.contains(QLatin1String("Lubuntu Manual"))) {
++        createLubuntuManualShortcut();
++    }
++    else if(!firstCall) {
++        QString network = XdgDir::readDesktopDir() + QLatin1String("/lubuntu-manual.desktop");
++        if(QFile::exists(network)) {
++            paths.push_back(Fm::FilePath::fromLocalPath(network.toStdString().c_str()));
++        }
++    }
+ 
+     // WARNING: QFile::remove() is not compatible with libfm-qt and should not be used.
+     if(!paths.empty()) {
+@@ -361,6 +371,20 @@ void DesktopWindow::createNetworkShortcut() {
+     g_key_file_free(kf);
+ }
+ 
++void DesktopWindow::createLubuntuManualShortcut() {
++    GKeyFile* kf = g_key_file_new();
++    g_key_file_set_string(kf, "Desktop Entry", "Type", "Application");
++    g_key_file_set_string(kf, "Desktop Entry", "Exec", "firefox manual.lubuntu.me");
++    g_key_file_set_string(kf, "Desktop Entry", "Icon", "help-browser");
++    const QString name = tr("Lubuntu Manual");
++    g_key_file_set_string(kf, "Desktop Entry", "Name", name.toStdString().c_str());
++
++    auto path = Fm::FilePath::fromLocalPath(XdgDir::readDesktopDir().toStdString().c_str()).localPath();
++    auto trash_can = Fm::CStrPtr{g_build_filename(path.get(), "lubuntu-manual.desktop", nullptr)};
++    g_key_file_save_to_file(kf, trash_can.get(), nullptr);
++    g_key_file_free(kf);
++}
++
+ void DesktopWindow::createTrash() {
+     if(trashMonitor_) {
+         return;
+@@ -1260,7 +1284,8 @@ void DesktopWindow::trustOurDesktopShortcut(std::shared_ptr<const Fm::FileInfo>
+     const char* execStr = isHome ? homeExec.get() :
+                           fileName == QLatin1String("trash-can.desktop") && ds.contains(QLatin1String("Trash")) ? "pcmanfm-qt trash:///" :
+                           fileName == QLatin1String("computer.desktop") && ds.contains(QLatin1String("Computer")) ? "pcmanfm-qt computer:///" :
+-                          fileName == QLatin1String("network.desktop") && ds.contains(QLatin1String("Network")) ? "pcmanfm-qt network:///" : nullptr;
++                          fileName == QLatin1String("network.desktop") && ds.contains(QLatin1String("Network")) ? "pcmanfm-qt network:///" :
++                          fileName == QLatin1String("lubuntu-manual.desktop") && ds.contains(QLatin1String("Lubuntu Manual")) ? "firefox manual.lubuntu.me" : nullptr ;
+     if(execStr) {
+         GKeyFile* kf = g_key_file_new();
+         if(g_key_file_load_from_file(kf, file->path().toString().get(), G_KEY_FILE_NONE, nullptr)) {
+diff --git a/pcmanfm/desktopwindow.h b/pcmanfm/desktopwindow.h
+index 742d964..4a90cb4 100644
+--- a/pcmanfm/desktopwindow.h
++++ b/pcmanfm/desktopwindow.h
+@@ -155,6 +155,7 @@ private:
+     void createHomeShortcut();
+     void createComputerShortcut();
+     void createNetworkShortcut();
++    void createLubuntuManualShortcut();
+ 
+     void createTrash();
+     static void onTrashChanged(GFileMonitor* monitor, GFile* gf, GFile* other, GFileMonitorEvent evt, DesktopWindow* pThis);
