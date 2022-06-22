@@ -1,6 +1,9 @@
 pcmanfm-qt (1.1.0-0ubuntu4) UNRELEASED; urgency=medium
 
   * Backport some upstream patches:
+    - Prevent an empty desktop path.
+      + https://github.com/lxqt/pcmanfm-qt/pull/1601
+      + https://github.com/lxqt/pcmanfm-qt/commit/f1438b
 
  -- Simon Quigley <tsimonq2@ubuntu.com>  Tue, 21 Jun 2022 23:58:05 -0500
 
