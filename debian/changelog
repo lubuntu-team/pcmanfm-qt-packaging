@@ -1,3 +1,9 @@
+pcmanfm-qt (1.1.0-0ubuntu4) UNRELEASED; urgency=medium
+
+  * Backport some upstream patches:
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Tue, 21 Jun 2022 23:58:05 -0500
+
 pcmanfm-qt (1.1.0-0ubuntu3) kinetic; urgency=medium
 
   * Create a new patch from thin air (woah, shiny!) which adds the Lubuntu
