@@ -1,0 +1,411 @@
+From 1151f49984ebc102c5238a9ba1d2b1a6769a1457 Mon Sep 17 00:00:00 2001
+From: tsujan <tsujan2000@gmail.com>
+Date: Tue, 21 Jun 2022 13:27:25 +0430
+Subject: [PATCH] Allow customizing workspace margins on desktop (#1606)
+
+It's especially useful with panels/docks that don't reserve space but auto-hide on overlapping windows.
+---
+ pcmanfm/desktop-preferences.ui       | 153 +++++++++++++++++++++------
+ pcmanfm/desktoppreferencesdialog.cpp |  10 ++
+ pcmanfm/desktopwindow.cpp            |  34 ++++--
+ pcmanfm/settings.cpp                 |  14 +++
+ pcmanfm/settings.h                   |   9 ++
+ 5 files changed, 183 insertions(+), 37 deletions(-)
+
+diff --git a/pcmanfm/desktop-preferences.ui b/pcmanfm/desktop-preferences.ui
+index d73e7312..c23f7bdb 100644
+--- a/pcmanfm/desktop-preferences.ui
++++ b/pcmanfm/desktop-preferences.ui
+@@ -136,6 +136,16 @@
+           <string>Spacing</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
++          <property name="verticalSpacing">
++           <number>10</number>
++          </property>
++          <item row="0" column="4">
++           <widget class="QCheckBox" name="lockMargins">
++            <property name="text">
++             <string>Lock</string>
++            </property>
++           </widget>
++          </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+@@ -143,10 +153,24 @@
+             </property>
+            </widget>
+           </item>
+-          <item row="0" column="1">
+-           <widget class="QSpinBox" name="hMargin">
++          <item row="0" column="5">
++           <spacer name="horizontalSpacer">
++            <property name="orientation">
++             <enum>Qt::Horizontal</enum>
++            </property>
++            <property name="sizeHint" stdset="0">
++             <size>
++              <width>20</width>
++              <height>5</height>
++             </size>
++            </property>
++           </spacer>
++          </item>
++          <item row="0" column="3">
++           <widget class="QSpinBox" name="vMargin">
+             <property name="toolTip">
+-             <string>3 px by default.</string>
++             <string>1 px by default.
++A space is also reserved for 3 lines of text.</string>
+             </property>
+             <property name="suffix">
+              <string> px</string>
+@@ -155,22 +179,14 @@
+              <number>48</number>
+             </property>
+             <property name="value">
+-             <number>3</number>
+-            </property>
+-           </widget>
+-          </item>
+-          <item row="0" column="2">
+-           <widget class="QLabel" name="label_8">
+-            <property name="text">
+-             <string>x</string>
++             <number>1</number>
+             </property>
+            </widget>
+           </item>
+-          <item row="0" column="3">
+-           <widget class="QSpinBox" name="vMargin">
++          <item row="0" column="1">
++           <widget class="QSpinBox" name="hMargin">
+             <property name="toolTip">
+-             <string>1 px by default.
+-A space is also reserved for 3 lines of text.</string>
++             <string>3 px by default.</string>
+             </property>
+             <property name="suffix">
+              <string> px</string>
+@@ -179,29 +195,104 @@ A space is also reserved for 3 lines of text.</string>
+              <number>48</number>
+             </property>
+             <property name="value">
+-             <number>1</number>
++             <number>3</number>
+             </property>
+            </widget>
+           </item>
+-          <item row="0" column="4">
+-           <widget class="QCheckBox" name="lockMargins">
++          <item row="0" column="2">
++           <widget class="QLabel" name="label_8">
+             <property name="text">
+-             <string>Lock</string>
++             <string>x</string>
+             </property>
+            </widget>
+           </item>
+-          <item row="0" column="5">
+-           <spacer name="horizontalSpacer">
+-            <property name="orientation">
+-             <enum>Qt::Horizontal</enum>
+-            </property>
+-            <property name="sizeHint" stdset="0">
+-             <size>
+-              <width>20</width>
+-              <height>5</height>
+-             </size>
+-            </property>
+-           </spacer>
++          <item row="1" column="0" colspan="6" alignment="Qt::AlignLeft">
++           <widget class="QGroupBox" name="groupBox_7">
++            <layout class="QVBoxLayout" name="verticalLayout_6">
++             <property name="spacing">
++              <number>10</number>
++             </property>
++             <property name="leftMargin">
++              <number>5</number>
++             </property>
++             <property name="topMargin">
++              <number>5</number>
++             </property>
++             <property name="rightMargin">
++              <number>5</number>
++             </property>
++             <property name="bottomMargin">
++              <number>5</number>
++             </property>
++             <item alignment="Qt::AlignHCenter">
++              <widget class="QLabel" name="label_13">
++               <property name="text">
++                <string>Margins of work area:</string>
++               </property>
++              </widget>
++             </item>
++             <item alignment="Qt::AlignHCenter">
++              <widget class="QSpinBox" name="topMargin">
++               <property name="suffix">
++                <string> px</string>
++               </property>
++               <property name="maximum">
++                <number>200</number>
++               </property>
++              </widget>
++             </item>
++             <item>
++              <layout class="QHBoxLayout" name="horizontalLayout_2">
++               <item>
++                <widget class="QSpinBox" name="leftMargin">
++                 <property name="suffix">
++                  <string> px</string>
++                 </property>
++                 <property name="maximum">
++                  <number>200</number>
++                 </property>
++                </widget>
++               </item>
++               <item>
++                <spacer name="horizontalSpacer_4">
++                 <property name="orientation">
++                  <enum>Qt::Horizontal</enum>
++                 </property>
++                 <property name="sizeType">
++                  <enum>QSizePolicy::MinimumExpanding</enum>
++                 </property>
++                 <property name="sizeHint" stdset="0">
++                  <size>
++                   <width>20</width>
++                   <height>5</height>
++                  </size>
++                 </property>
++                </spacer>
++               </item>
++               <item>
++                <widget class="QSpinBox" name="rightMargin">
++                 <property name="suffix">
++                  <string> px</string>
++                 </property>
++                 <property name="maximum">
++                  <number>200</number>
++                 </property>
++                </widget>
++               </item>
++              </layout>
++             </item>
++             <item alignment="Qt::AlignHCenter">
++              <widget class="QSpinBox" name="bottomMargin">
++               <property name="suffix">
++                <string> px</string>
++               </property>
++               <property name="maximum">
++                <number>200</number>
++               </property>
++              </widget>
++             </item>
++            </layout>
++           </widget>
+           </item>
+          </layout>
+         </widget>
+diff --git a/pcmanfm/desktoppreferencesdialog.cpp b/pcmanfm/desktoppreferencesdialog.cpp
+index 465095c6..04ac8bb8 100644
+--- a/pcmanfm/desktoppreferencesdialog.cpp
++++ b/pcmanfm/desktoppreferencesdialog.cpp
+@@ -128,6 +128,11 @@ DesktopPreferencesDialog::DesktopPreferencesDialog(QWidget* parent, Qt::WindowFl
+   ui.vMargin->setValue(settings.desktopCellMargins().height());
+   connect(ui.lockMargins, &QAbstractButton::clicked, this, &DesktopPreferencesDialog::lockMargins);
+ 
++  ui.leftMargin->setValue(settings.workAreaMargins().left());
++  ui.topMargin->setValue(settings.workAreaMargins().top());
++  ui.rightMargin->setValue(settings.workAreaMargins().right());
++  ui.bottomMargin->setValue(settings.workAreaMargins().bottom());
++
+   ui.defaultFileManager->setChecked(settings.openWithDefaultFileManager());
+ 
+   ui.allSticky->setChecked(settings.allSticky());
+@@ -207,6 +212,11 @@ void DesktopPreferencesDialog::applySettings()
+ 
+   settings.setDesktopCellMargins(QSize(ui.hMargin->value(), ui.vMargin->value()));
+ 
++  settings.setWorkAreaMargins(QMargins(ui.leftMargin->value(),
++                                       ui.topMargin->value(),
++                                       ui.rightMargin->value(),
++                                       ui.bottomMargin->value()));
++
+   settings.setOpenWithDefaultFileManager(ui.defaultFileManager->isChecked());
+ 
+   settings.setAllSticky(ui.allSticky->isChecked());
+diff --git a/pcmanfm/desktopwindow.cpp b/pcmanfm/desktopwindow.cpp
+index d69b660e..b2870774 100644
+--- a/pcmanfm/desktopwindow.cpp
++++ b/pcmanfm/desktopwindow.cpp
+@@ -63,7 +63,6 @@
+ #include <xcb/xcb.h>
+ #include <X11/Xlib.h>
+ 
+-#define WORK_AREA_MARGIN 12 // margin of the work area
+ #define MIN_SLIDE_INTERVAL 5*60000 // 5 min
+ #define MAX_SLIDE_INTERVAL (24*60+55)*60000 // 24 h and 55 min
+ 
+@@ -1203,8 +1202,13 @@ void DesktopWindow::removeBottomGap() {
+     auto itemSize = delegate->itemSize();
+     //qDebug() << "delegate:" << delegate->itemSize();
+     QSize cellMargins = getMargins();
++    Settings& settings = static_cast<Application* >(qApp)->settings();
+     int workAreaHeight = screen->availableVirtualGeometry().height()
+-                         - 2 * WORK_AREA_MARGIN;
++                         - settings.workAreaMargins().top()
++                         - settings.workAreaMargins().bottom();
++    if(workAreaHeight <= 0) {
++        return;
++    }
+     int cellHeight = itemSize.height() + listView_->spacing();
+     int iconNumber = workAreaHeight / cellHeight;
+     int bottomGap = workAreaHeight % cellHeight;
+@@ -1219,7 +1223,6 @@ void DesktopWindow::removeBottomGap() {
+     qreal exactNumber = (static_cast<qreal>(cellHeight) - static_cast<qreal>(bottomGap))
+                         / (2 * static_cast<qreal>(iconNumber) + static_cast<qreal>(2));
+     int subtrahend = (int)exactNumber + ((int)exactNumber == exactNumber ? 0 : 1);
+-    Settings& settings = static_cast<Application*>(qApp)->settings();
+     int minCellHeight = settings.desktopCellMargins().height();
+     if(subtrahend > 0
+             && cellMargins.height() - subtrahend >= minCellHeight) {
+@@ -1301,11 +1304,18 @@ void DesktopWindow::trustOurDesktopShortcut(std::shared_ptr<const Fm::FileInfo>
+ 
+ QRect DesktopWindow::getWorkArea(QScreen* screen) const {
+     QRect workArea = screen->availableVirtualGeometry();
+-    workArea.adjust(WORK_AREA_MARGIN, WORK_AREA_MARGIN, -WORK_AREA_MARGIN, -WORK_AREA_MARGIN);
++    QMargins margins = static_cast<Application* >(qApp)->settings().workAreaMargins();
+     // switch between right and left with RTL to use the usual (LTR) calculations later
+     if(layoutDirection() == Qt::RightToLeft) {
++        int right = margins.right();
++        margins.setRight(margins.left());
++        margins.setLeft(right);
++        workArea = workArea.marginsRemoved(margins);
+         workArea.moveLeft(rect().right() - workArea.right());
+     }
++    else {
++        workArea = workArea.marginsRemoved(margins);
++    }
+     return workArea;
+ }
+ 
+@@ -1709,6 +1719,9 @@ QModelIndex DesktopWindow::navigateWithKey(int key, Qt::KeyboardModifiers modifi
+         QRect workArea = getWorkArea(screen);
+         int columns = workArea.width() / (itemSize.width() + listView_->spacing());
+         int rows = workArea.height() / (itemSize.height() + listView_->spacing());
++        if(columns <= 0 || rows <= 0) {
++            break;
++        }
+         bool rtl(layoutDirection() == Qt::RightToLeft);
+         while(!index.isValid() && workArea.contains(pos)) {
+             switch(key) {
+@@ -1971,7 +1984,7 @@ void DesktopWindow::childDropEvent(QDropEvent* e) {
+         // move selected items to the drop position, preserving their relative positions
+         QPoint dropPos = e->pos();
+ 
+-        if(curIndx.isValid()) {
++        if(curIndx.isValid() && !workArea.isEmpty()) {
+             QPoint curPoint = listView_->visualRect(curIndx).topLeft();
+ 
+             // first move the current item to the drop position
+@@ -2050,7 +2063,8 @@ void DesktopWindow::childDropEvent(QDropEvent* e) {
+         }
+ 
+         // position dropped items successively, starting with the drop rectangle
+-        if(mimeData->hasUrls()
++        if(!workArea.isEmpty()
++           && mimeData->hasUrls()
+            && (e->dropAction() == Qt::CopyAction
+                || e->dropAction() == Qt::MoveAction
+                || e->dropAction() == Qt::LinkAction)) {
+@@ -2079,6 +2093,10 @@ void DesktopWindow::childDropEvent(QDropEvent* e) {
+ // until it reaches the last cell and then puts the remaining items in the opposite
+ // direction. In this way, it creates a natural DND, especially with multiple files.
+ bool DesktopWindow::stickToPosition(const std::string& file, QPoint& pos, const QRect& workArea, const QSize& grid, bool reachedLastCell) {
++    if(workArea.isEmpty()) {
++        return reachedLastCell;
++    }
++
+     // normalize the position, depending on the positioning direction
+     if(!reachedLastCell) { // default direction: top -> bottom, left -> right
+ 
+@@ -2178,6 +2196,10 @@ void DesktopWindow::alignToGrid(QPoint& pos, const QPoint& topLeft, const QSize&
+ // the text or icon rectangle but we make an exception for Trash because we want
+ // to trash dropped items once the drop point is inside the Trash cell.
+ QModelIndex DesktopWindow::indexForPos(bool* isTrash, const QPoint& pos, const QRect& workArea, const QSize& grid) const {
++    if(workArea.isEmpty()) {
++        return QModelIndex();
++    }
++
+     // first normalize the position
+     QPoint p(pos);
+ 
+diff --git a/pcmanfm/settings.cpp b/pcmanfm/settings.cpp
+index c5ccc00f..b1397cab 100644
+--- a/pcmanfm/settings.cpp
++++ b/pcmanfm/settings.cpp
+@@ -134,6 +134,7 @@ Settings::Settings():
+     templateRunApp_(false),
+     folderViewCellMargins_(QSize(3, 3)),
+     desktopCellMargins_(QSize(3, 1)),
++    workAreaMargins_(QMargins(12, 12, 12, 12)),
+     openWithDefaultFileManager_(false),
+     allSticky_(false),
+     searchNameCaseInsensitive_(false),
+@@ -269,6 +270,14 @@ bool Settings::loadFile(QString filePath) {
+ 
+     desktopCellMargins_ = (settings.value(QStringLiteral("DesktopCellMargins"), QSize(3, 1)).toSize()
+                            .expandedTo(QSize(0, 0))).boundedTo(QSize(48, 48));
++    auto l = settings.value(QStringLiteral("WorkAreaMargins")).toList();
++    if(l.size() >= 4) {
++        workAreaMargins_.setLeft(qBound(0, l.at(0).toInt(), 200));
++        workAreaMargins_.setTop(qBound(0, l.at(1).toInt(), 200));
++        workAreaMargins_.setRight(qBound(0, l.at(2).toInt(), 200));
++        workAreaMargins_.setBottom(qBound(0, l.at(3).toInt(), 200));
++    }
++
+     openWithDefaultFileManager_ = settings.value(QStringLiteral("OpenWithDefaultFileManager"), false).toBool();
+     allSticky_ = settings.value(QStringLiteral("AllSticky"), false).toBool();
+     settings.endGroup();
+@@ -416,6 +425,11 @@ bool Settings::saveFile(QString filePath) {
+     settings.setValue(QStringLiteral("SortFolderFirst"), desktopSortFolderFirst_);
+     settings.setValue(QStringLiteral("SortHiddenLast"), desktopSortHiddenLast_);
+     settings.setValue(QStringLiteral("DesktopCellMargins"), desktopCellMargins_);
++    QList<QVariant> l{workAreaMargins_.left(),
++                      workAreaMargins_.top(),
++                      workAreaMargins_.right(),
++                      workAreaMargins_.bottom()};
++    settings.setValue(QStringLiteral("WorkAreaMargins"), l);
+     settings.setValue(QStringLiteral("OpenWithDefaultFileManager"), openWithDefaultFileManager_);
+     settings.setValue(QStringLiteral("AllSticky"), allSticky_);
+     settings.endGroup();
+diff --git a/pcmanfm/settings.h b/pcmanfm/settings.h
+index 63c92b71..e9641b18 100644
+--- a/pcmanfm/settings.h
++++ b/pcmanfm/settings.h
+@@ -788,6 +788,14 @@ class Settings : public QObject {
+         desktopCellMargins_ = size;
+     }
+ 
++    QMargins workAreaMargins() const {
++        return workAreaMargins_;
++    }
++
++    void setWorkAreaMargins(QMargins margins) {
++        workAreaMargins_ = margins;
++    }
++
+     bool openWithDefaultFileManager() const {
+         return openWithDefaultFileManager_;
+     }
+@@ -1145,6 +1153,7 @@ class Settings : public QObject {
+ 
+     QSize folderViewCellMargins_;
+     QSize desktopCellMargins_;
++    QMargins workAreaMargins_;
+ 
+     bool openWithDefaultFileManager_;
+ 

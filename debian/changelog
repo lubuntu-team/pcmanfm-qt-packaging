@@ -4,6 +4,9 @@ pcmanfm-qt (1.1.0-0ubuntu4) UNRELEASED; urgency=medium
     - Prevent an empty desktop path.
       + https://github.com/lxqt/pcmanfm-qt/pull/1601
       + https://github.com/lxqt/pcmanfm-qt/commit/f1438b
+    - Allow customizing workspace margins on desktop.
+      + https://github.com/lxqt/pcmanfm-qt/pull/1606
+      + https://github.com/lxqt/pcmanfm-qt/commit/1151f4
 
  -- Simon Quigley <tsimonq2@ubuntu.com>  Tue, 21 Jun 2022 23:58:05 -0500
 
