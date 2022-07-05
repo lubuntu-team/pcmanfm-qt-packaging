@@ -5,6 +5,7 @@ pcmanfm-qt (1.1.0-0ubuntu4~ppa1) jammy; urgency=medium
   * Removed obsolete "-Wl,--as-needed" linker flag.
   * Bumped Standards-Version to 4.6.1, no changes necessary.
   * Added "Rules-Requires-Root: no" to debian/control.
+  * Removed trailing whitespace from changelog.
 
  -- Aaron Rainbolt <arraybolt3@gmail.com>  Tue, 05 Jul 2022 13:38:18 -0500
 
@@ -550,4 +551,3 @@ pcmanfm-qt (0.9.0+20150816-1) unstable; urgency=medium
   * Warpped lines in copyright.
 
  -- Andrew Lee (李健秋) <ajqlee@debian.org>  Mon, 17 Aug 2015 21:04:54 +0800
-
