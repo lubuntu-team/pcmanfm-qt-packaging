@@ -1,3 +1,9 @@
+pcmanfm-qt (1.1.0-0ubuntu4~ppa1) jammy; urgency=medium
+
+  * Backport to Jammy.
+
+ -- Aaron Rainbolt <arraybolt3@gmail.com>  Tue, 05 Jul 2022 13:38:18 -0500
+
 pcmanfm-qt (1.1.0-0ubuntu4) kinetic; urgency=medium
 
   * Backport some upstream patches:
