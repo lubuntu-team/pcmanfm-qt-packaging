@@ -1,0 +1,3 @@
+# No keywords entries needed in the desktop files.
+pcmanfm-qt: desktop-entry-lacks-keywords-entry usr/share/applications/pcmanfm-qt-desktop-pref.desktop
+pcmanfm-qt: desktop-entry-lacks-keywords-entry usr/share/applications/pcmanfm-qt.desktop
