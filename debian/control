@@ -23,6 +23,7 @@ Vcs-Git: https://phab.lubuntu.me/source/pcmanfm-qt.git
 XS-Debian-Vcs-Browser: https://salsa.debian.org/lxqt-team/pcmanfm-qt
 XS-Debian-Vcs-Git: https://salsa.debian.org/lxqt-team/pcmanfm-qt.git
 Homepage: https://github.com/lxqt/pcmanfm-qt
+Rules-Requires-Root: no
 
 Package: pcmanfm-qt
 Architecture: any
