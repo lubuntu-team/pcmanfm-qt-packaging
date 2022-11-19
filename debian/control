@@ -18,8 +18,8 @@ Build-Depends: debhelper-compat (= 13),
                libx11-dev,
                lxqt-build-tools (>= 0.11.0)
 Standards-Version: 4.5.1
-Vcs-Browser: https://phab.lubuntu.me/source/pcmanfm-qt/
-Vcs-Git: https://phab.lubuntu.me/source/pcmanfm-qt.git
+Vcs-Browser: https://git.lubuntu.me/Lubuntu/pcmanfm-qt-packaging
+Vcs-Git: https://git.lubuntu.me/Lubuntu/pcmanfm-qt-packaging.git
 XS-Debian-Vcs-Browser: https://salsa.debian.org/lxqt-team/pcmanfm-qt
 XS-Debian-Vcs-Git: https://salsa.debian.org/lxqt-team/pcmanfm-qt.git
 Homepage: https://github.com/lxqt/pcmanfm-qt
