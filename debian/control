@@ -17,7 +17,7 @@ Build-Depends: debhelper-compat (= 13),
                libqt5x11extras5-dev,
                libx11-dev,
                lxqt-build-tools (>= 0.11.0)
-Standards-Version: 4.5.1
+Standards-Version: 4.6.1
 Vcs-Browser: https://git.lubuntu.me/Lubuntu/pcmanfm-qt-packaging
 Vcs-Git: https://git.lubuntu.me/Lubuntu/pcmanfm-qt-packaging.git
 XS-Debian-Vcs-Browser: https://salsa.debian.org/lxqt-team/pcmanfm-qt
