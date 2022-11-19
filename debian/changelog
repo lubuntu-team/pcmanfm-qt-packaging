@@ -1,3 +1,9 @@
+pcmanfm-qt (1.2.0-0ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 18 Nov 2022 18:44:59 -0600
+
 pcmanfm-qt (1.1.0-0ubuntu4) kinetic; urgency=medium
 
   * Backport some upstream patches:
