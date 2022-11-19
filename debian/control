@@ -10,13 +10,13 @@ Section: x11
 Priority: optional
 Build-Depends: debhelper-compat (= 13),
                libexif-dev,
-               libfm-qt-dev (>= 1.1.0),
+               libfm-qt-dev (>= 1.2.0),
                libkf5windowsystem-dev,
                libmenu-cache-dev,
                libqt5svg5-dev,
                libqt5x11extras5-dev,
                libx11-dev,
-               lxqt-build-tools (>= 0.11.0)
+               lxqt-build-tools (>= 0.12.0)
 Standards-Version: 4.6.1
 Vcs-Browser: https://git.lubuntu.me/Lubuntu/pcmanfm-qt-packaging
 Vcs-Git: https://git.lubuntu.me/Lubuntu/pcmanfm-qt-packaging.git
@@ -28,7 +28,7 @@ Package: pcmanfm-qt
 Architecture: any
 Depends: default-dbus-session-bus | dbus-session-bus | dbus-x11,
          desktop-file-utils,
-         libfm-qt11 (>= 1.1.0),
+         libfm-qt12 (>= 1.2.0),
          lxqt-sudo,
          ${misc:Depends},
          ${shlibs:Depends}
