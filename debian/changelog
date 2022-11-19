@@ -1,4 +1,4 @@
-pcmanfm-qt (1.2.0-0ubuntu1) UNRELEASED; urgency=medium
+pcmanfm-qt (1.2.0-0ubuntu1) lunar; urgency=medium
 
   * New upstream release.
   * Fix the watch file, for real this time.
@@ -8,7 +8,7 @@ pcmanfm-qt (1.2.0-0ubuntu1) UNRELEASED; urgency=medium
   * Remove reverse-applicable upstream patches.
   * Brief copyright update.
 
- -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 18 Nov 2022 18:44:59 -0600
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 18 Nov 2022 18:55:38 -0600
 
 pcmanfm-qt (1.1.0-0ubuntu4) kinetic; urgency=medium
 
