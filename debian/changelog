@@ -6,6 +6,7 @@ pcmanfm-qt (1.2.1-0ubuntu1) lunar; urgency=medium
   * Bumped build dependency for libfm-qt.
   * Removed obsolete '-Wl,--as-needed' linker flag.
   * Added 'Rules-Requires-Root: no' to debian/control.
+  * Removed trailing whitespace from changelog.
 
  -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Fri, 27 Jan 2023 15:55:12 -0600
 
@@ -563,4 +564,3 @@ pcmanfm-qt (0.9.0+20150816-1) unstable; urgency=medium
   * Warpped lines in copyright.
 
  -- Andrew Lee (李健秋) <ajqlee@debian.org>  Mon, 17 Aug 2015 21:04:54 +0800
-
