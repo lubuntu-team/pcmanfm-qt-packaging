@@ -3,6 +3,7 @@ pcmanfm-qt (1.2.1-0ubuntu1) lunar; urgency=medium
   * New upstream release.
   * Updated copyright file.
   * Bumped Standards-Version to 4.6.2, no changes necessary.
+  * Bumped build dependency for libfm-qt.
 
  -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Fri, 27 Jan 2023 15:55:12 -0600
 
