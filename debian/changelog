@@ -5,6 +5,7 @@ pcmanfm-qt (1.2.1-0ubuntu1) lunar; urgency=medium
   * Bumped Standards-Version to 4.6.2, no changes necessary.
   * Bumped build dependency for libfm-qt.
   * Removed obsolete '-Wl,--as-needed' linker flag.
+  * Added 'Rules-Requires-Root: no' to debian/control.
 
  -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Fri, 27 Jan 2023 15:55:12 -0600
 
