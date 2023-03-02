@@ -2,6 +2,9 @@ pcmanfm-qt (1.2.1-0ubuntu2) lunar; urgency=medium
 
   * Put the Lubuntu Manual checkbox where it belongs in the Desktop
     Preferences window. (LP: #1998528)
+  * Make the Lubuntu Manual checkbox behave correctly (if the shortcut is
+    present, it should be checked, if the shortcut is missing, it should be
+    unchecked).
 
  -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Thu, 02 Mar 2023 17:41:45 -0600
 
