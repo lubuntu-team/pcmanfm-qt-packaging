@@ -222,7 +222,17 @@ Last-Update: 2022-06-16
  void DesktopWindow::createTrash() {
      if(trashMonitor_) {
          return;
-@@ -1297,7 +1321,8 @@ void DesktopWindow::trustOurDesktopShort
+@@ -987,7 +1011,8 @@ void DesktopWindow::onFileClicked(int ty
+                 if((fileName == QLatin1String("trash-can.desktop") && ds.contains(QLatin1String("Trash")))
+                    || (fileName == QLatin1String("user-home.desktop") && ds.contains(QLatin1String("Home")))
+                    || (fileName == QLatin1String("computer.desktop") && ds.contains(QLatin1String("Computer")))
+-                   || (fileName == QLatin1String("network.desktop") && ds.contains(QLatin1String("Network")))) {
++                   || (fileName == QLatin1String("network.desktop") && ds.contains(QLatin1String("Network")))
++                   || (fileName == QLatin1String("lubuntu-manual.desktop") && ds.contains(QLatin1String("Lubuntu Manual")))) {
+                     QMenu* menu = new QMenu(this);
+                     // "Open" action for all
+                     QAction* action = menu->addAction(tr("Open"));
+@@ -1297,7 +1322,8 @@ void DesktopWindow::trustOurDesktopShort
      const char* execStr = isHome ? homeExec.get() :
                            fileName == QLatin1String("trash-can.desktop") && ds.contains(QLatin1String("Trash")) ? "pcmanfm-qt trash:///" :
                            fileName == QLatin1String("computer.desktop") && ds.contains(QLatin1String("Computer")) ? "pcmanfm-qt computer:///" :
