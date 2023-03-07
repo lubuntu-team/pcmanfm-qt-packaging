@@ -16,15 +16,6 @@ Last-Update: 2022-06-16
     </rect>
    </property>
    <property name="windowTitle">
-@@ -17,7 +17,7 @@
-    <item>
-     <widget class="QTabWidget" name="tabWidget">
-      <property name="currentIndex">
--      <number>0</number>
-+      <number>3</number>
-      </property>
-      <widget class="QWidget" name="generalPage">
-       <attribute name="title">
 @@ -485,27 +485,17 @@ are left clicked, even when it is not th
            <bool>false</bool>
           </property>

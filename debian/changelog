@@ -1,3 +1,9 @@
+pcmanfm-qt (1.2.1-0ubuntu3) lunar; urgency=medium
+
+  * Made the General tab in Desktop Preferences the default tab again.
+
+ -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Tue, 07 Mar 2023 12:35:39 -0600
+
 pcmanfm-qt (1.2.1-0ubuntu2) lunar; urgency=medium
 
   * Put the Lubuntu Manual checkbox where it belongs in the Desktop
