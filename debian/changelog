@@ -1,9 +1,9 @@
-pcmanfm-qt (1.3.0-0ubuntu1) UNRELEASED; urgency=medium
+pcmanfm-qt (1.3.0-0ubuntu1) mantic; urgency=medium
 
   * New upstream release.
   * Bump build dependencies.
 
- -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 10 Aug 2023 16:39:49 -0500
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 11 Aug 2023 09:52:17 -0500
 
 pcmanfm-qt (1.2.1-0ubuntu3) lunar; urgency=medium
 
