@@ -2,5 +2,6 @@ etc/xdg/autostart/lxqt-desktop.desktop
 usr/bin/pcmanfm-qt
 usr/share/applications/pcmanfm-qt-desktop-pref.desktop
 usr/share/applications/pcmanfm-qt.desktop
+usr/share/icons/hicolor/scalable/apps/pcmanfm-qt.svg
 usr/share/man/man1/pcmanfm-qt.1
 usr/share/pcmanfm-qt/lxqt/settings.conf
