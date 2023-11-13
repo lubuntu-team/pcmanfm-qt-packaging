@@ -1,3 +1,9 @@
+pcmanfm-qt (1.4.0-0ubuntu1~ppa1) jammy; urgency=medium
+
+  * Backport to Jammy.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sun, 12 Nov 2023 21:28:59 -0600
+
 pcmanfm-qt (1.4.0-0ubuntu1) noble; urgency=medium
 
   * New upstream release.
