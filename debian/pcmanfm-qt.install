@@ -1,4 +1,5 @@
 etc/xdg/autostart/lxqt-desktop.desktop
+icons/lubuntu-manual.svg usr/share/icons/hicolor/scalable/apps/
 usr/bin/pcmanfm-qt
 usr/share/applications/pcmanfm-qt-desktop-pref.desktop
 usr/share/applications/pcmanfm-qt.desktop
