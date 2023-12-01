@@ -1,8 +1,14 @@
-pcmanfm-qt (1.4.0-0ubuntu2~ppa1) mantic; urgency=medium
+pcmanfm-qt (1.4.0-0ubuntu3~ppa23.10.1) mantic; urgency=medium
 
   * Backport to Mantic.
 
- -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 16 Nov 2023 15:11:25 -0600
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 01 Dec 2023 15:03:56 -0600
+
+pcmanfm-qt (1.4.0-0ubuntu3) noble; urgency=medium
+
+  * Update the Lubuntu Manual patch to use the dedicated icon.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 01 Dec 2023 14:54:31 -0600
 
 pcmanfm-qt (1.4.0-0ubuntu2) noble; urgency=medium
 
