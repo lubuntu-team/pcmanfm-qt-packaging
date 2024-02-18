@@ -1,3 +1,9 @@
+pcmanfm-qt (1.4.1-0ubuntu1) noble; urgency=medium
+
+  * New upstream release.
+
+ -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Sun, 18 Feb 2024 16:31:24 -0600
+
 pcmanfm-qt (1.4.0-0ubuntu3) noble; urgency=medium
 
   * Update the Lubuntu Manual patch to use the dedicated icon.
