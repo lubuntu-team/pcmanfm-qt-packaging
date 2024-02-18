@@ -1,6 +1,7 @@
 pcmanfm-qt (1.4.1-0ubuntu1) noble; urgency=medium
 
   * New upstream release.
+  * Updated copyright file.
 
  -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Sun, 18 Feb 2024 16:31:24 -0600
 
