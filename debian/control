@@ -9,14 +9,16 @@ Uploaders: Alf Gaida <agaida@siduction.org>,
 Section: x11
 Priority: optional
 Build-Depends: debhelper-compat (= 13),
+               layer-shell-qt,
                libexif-dev,
-               libfm-qt-dev (>= 1.4.0),
-               libkf5windowsystem-dev,
+               libfm-qt6-dev (>= 2.0.0),
+               libkf6windowsystem-dev,
+               liblayershellqtinterface-dev,
                libmenu-cache-dev,
-               libqt5svg5-dev,
-               libqt5x11extras5-dev,
                libx11-dev,
-               lxqt-build-tools (>= 0.13.0)
+               lxqt-build-tools (>= 2.0.0),
+               qt6-svg-dev,
+               qt6-wayland-dev
 Standards-Version: 4.7.0
 Vcs-Browser: https://git.lubuntu.me/Lubuntu/pcmanfm-qt-packaging
 Vcs-Git: https://git.lubuntu.me/Lubuntu/pcmanfm-qt-packaging.git
@@ -29,7 +31,7 @@ Package: pcmanfm-qt
 Architecture: any
 Depends: default-dbus-session-bus | dbus-session-bus | dbus-x11,
          desktop-file-utils,
-         libfm-qt14,
+         libfm-qt6-14,
          lxqt-sudo,
          ${misc:Depends},
          ${shlibs:Depends}
@@ -53,7 +55,7 @@ Package: pcmanfm-qt-l10n
 Architecture: all
 Multi-Arch: foreign
 Section: localization
-Depends: qttranslations5-l10n, ${misc:Depends}
+Depends: qt6-translations-l10n, ${misc:Depends}
 Description: Language package for pcmanfm-qt
  PCManFM-Qt is the Qt port of the LXDE file manager PCManFM.
  .

@@ -2,6 +2,7 @@ pcmanfm-qt (2.0.0-0ubuntu1) UNRELEASED; urgency=medium
 
   * New upstream release.
   * Bump Standards-Version to 4.7.0, no changes necessary.
+  * Adjust build dependencies.
 
  -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Wed, 26 Jun 2024 13:01:26 -0500
 
