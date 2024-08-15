@@ -1,10 +1,10 @@
-pcmanfm-qt (2.0.0-0ubuntu1~ppa1) oracular; urgency=medium
+pcmanfm-qt (2.0.0-0ubuntu1) oracular; urgency=medium
 
   * New upstream release.
   * Bump Standards-Version to 4.7.0, no changes necessary.
   * Adjust build dependencies.
 
- -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Wed, 26 Jun 2024 13:01:26 -0500
+ -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Thu, 15 Aug 2024 16:27:12 -0500
 
 pcmanfm-qt (1.4.1-0ubuntu1) noble; urgency=medium
 
