@@ -1,3 +1,9 @@
+pcmanfm-qt (2.1.0-0ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Tue, 05 Nov 2024 14:53:52 -0600
+
 pcmanfm-qt (2.0.0-0ubuntu1) oracular; urgency=medium
 
   * New upstream release.
