@@ -1,0 +1,6 @@
+# This is expected
+pcmanfm-qt: desktop-entry-lacks-keywords-entry [usr/share/applications/pcmanfm-qt-desktop-pref.desktop]
+pcmanfm-qt: desktop-entry-lacks-keywords-entry [usr/share/applications/pcmanfm-qt.desktop]
+
+# False positive
+pcmanfm-qt: hardening-no-fortify-functions [usr/bin/pcmanfm-qt]

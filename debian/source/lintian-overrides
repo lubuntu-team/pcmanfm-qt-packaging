@@ -1,0 +1,6 @@
+# We add this via quilt patch
+pcmanfm-qt source: superfluous-file-pattern icons/lubuntu-manual.svg [debian/copyright:*]
+
+# These are expected
+pcmanfm-qt source: very-long-line-length-in-source-file * > 512 [debian/patches/add-manual.patch:*]
+pcmanfm-qt source: very-long-line-length-in-source-file * > 512 [*.ts:*]
