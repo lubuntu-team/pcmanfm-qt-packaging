@@ -3,4 +3,3 @@ pcmanfm-qt source: superfluous-file-pattern icons/lubuntu-manual.svg [debian/cop
 
 # These are expected
 pcmanfm-qt source: very-long-line-length-in-source-file * > 512 [debian/patches/add-manual.patch:*]
-pcmanfm-qt source: very-long-line-length-in-source-file * > 512 [*.ts:*]
