@@ -2,6 +2,7 @@ pcmanfm-qt (2.2.0-0ubuntu1) questing; urgency=medium
 
   * New upstream release.
   * Update copyright file.
+  * Bump Standards-Version to 4.7.2, no changes needed.
 
  -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Wed, 30 Jul 2025 15:14:44 -0500
 
