@@ -1,3 +1,9 @@
+pcmanfm-qt (2.2.0-0ubuntu3) UNRELEASED; urgency=medium
+
+  * Recommend kf6-breeze-icon-theme instead of transitional package.
+
+ -- Rik Mills <rikmills@kde.org>  Thu, 18 Dec 2025 13:15:06 +0000
+
 pcmanfm-qt (2.2.0-0ubuntu2) questing; urgency=medium
 
   * Bump depends to latest libfm-qt.

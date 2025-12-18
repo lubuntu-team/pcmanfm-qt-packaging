@@ -69,7 +69,7 @@ Recommends: eject,
             lximage-qt,
             lxqt-policykit,
             lxqt-qtplugin,
-            papirus-icon-theme | breeze-icon-theme | faenza-icon-theme | oxygen-icon-theme,
+            papirus-icon-theme | kf6-breeze-icon-theme | faenza-icon-theme | oxygen-icon-theme,
             pcmanfm-qt-l10n
 Suggests: cdtool [linux-any]
 Description: extremely fast and lightweight file and desktop icon manager
