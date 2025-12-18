@@ -1,4 +1,4 @@
-pcmanfm-qt (2.2.0-0ubuntu3) UNRELEASED; urgency=medium
+pcmanfm-qt (2.2.0-0ubuntu3) resolute; urgency=medium
 
   * Recommend kf6-breeze-icon-theme instead of transitional package.
 
