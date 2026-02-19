@@ -1,3 +1,9 @@
+pcmanfm-qt (2.3.0-0ubuntu1) resolute; urgency=medium
+
+  * New upstream release.
+
+ -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Thu, 19 Feb 2026 15:42:37 -0500
+
 pcmanfm-qt (2.2.0-0ubuntu3) resolute; urgency=medium
 
   * Recommend kf6-breeze-icon-theme instead of transitional package.
