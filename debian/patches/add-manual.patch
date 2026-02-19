@@ -1,7 +1,7 @@
 Description: Add a desktop shortcut for the Lubuntu Manual
 Forwarded: eventually
 Author: Simon Quigley <tsimonq2@lubuntu.me>
-Last-Update: 2023-12-01
+Last-Update: 2026-02-19
 ---
 --- a/pcmanfm/desktoppreferencesdialog.cpp
 +++ b/pcmanfm/desktoppreferencesdialog.cpp
@@ -13,7 +13,7 @@ Last-Update: 2023-12-01
  
    // set fallback icon here (cannot be done in .ui)
    ui.networkBox->setIcon(QIcon::fromTheme(QStringLiteral("network"), QIcon::fromTheme(QStringLiteral("folder-network"))));
-@@ -215,6 +216,9 @@ void DesktopPreferencesDialog::applySett
+@@ -217,6 +218,9 @@ void DesktopPreferencesDialog::applySett
    if(ui.networkBox->isChecked()) {
        ds << QLatin1String("Network");
    }
@@ -25,7 +25,7 @@ Last-Update: 2023-12-01
    settings.setDesktopCellMargins(QSize(ui.hMargin->value(), ui.vMargin->value()));
 --- a/pcmanfm/desktopwindow.cpp
 +++ b/pcmanfm/desktopwindow.cpp
-@@ -310,6 +310,16 @@ void DesktopWindow::updateShortcutsFromS
+@@ -306,6 +306,16 @@ void DesktopWindow::updateShortcutsFromS
              paths.push_back(Fm::FilePath::fromLocalPath(network.toStdString().c_str()));
          }
      }
@@ -33,7 +33,7 @@ Last-Update: 2023-12-01
 +    if(ds.contains(QLatin1String("Lubuntu Manual"))) {
 +        createLubuntuManualShortcut();
 +    }
-+    else if(!firstCall) {
++    else if(allowShortcutRemoval) {
 +        QString network = XdgDir::readDesktopDir() + QLatin1String("/lubuntu-manual.desktop");
 +        if(QFile::exists(network)) {
 +            paths.push_back(Fm::FilePath::fromLocalPath(network.toStdString().c_str()));
@@ -42,7 +42,7 @@ Last-Update: 2023-12-01
  
      // WARNING: QFile::remove() is not compatible with libfm-qt and should not be used.
      if(!paths.empty()) {
-@@ -395,6 +405,20 @@ void DesktopWindow::createNetworkShortcu
+@@ -389,6 +399,20 @@ void DesktopWindow::createNetworkShortcu
      g_key_file_free(kf);
  }
  
@@ -63,7 +63,7 @@ Last-Update: 2023-12-01
  void DesktopWindow::createTrash() {
      if(trashMonitor_) {
          return;
-@@ -1046,7 +1070,8 @@ void DesktopWindow::onFileClicked(int ty
+@@ -1040,7 +1064,8 @@ void DesktopWindow::onFileClicked(int ty
                  if((fileName == QLatin1String("trash-can.desktop") && ds.contains(QLatin1String("Trash")))
                     || (fileName == QLatin1String("user-home.desktop") && ds.contains(QLatin1String("Home")))
                     || (fileName == QLatin1String("computer.desktop") && ds.contains(QLatin1String("Computer")))
@@ -73,7 +73,7 @@ Last-Update: 2023-12-01
                      QMenu* menu = new QMenu(this);
                      // "Open" action for all
                      QAction* action = menu->addAction(tr("Open"));
-@@ -1380,7 +1405,8 @@ void DesktopWindow::trustOurDesktopShort
+@@ -1374,7 +1399,8 @@ void DesktopWindow::trustOurDesktopShort
      const char* execStr = isHome ? homeExec.get() :
                            fileName == QLatin1String("trash-can.desktop") && ds.contains(QLatin1String("Trash")) ? "pcmanfm-qt trash:///" :
                            fileName == QLatin1String("computer.desktop") && ds.contains(QLatin1String("Computer")) ? "pcmanfm-qt computer:///" :
