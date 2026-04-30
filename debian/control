@@ -10,7 +10,7 @@ Section: x11
 Build-Depends: debhelper-compat (= 13),
                layer-shell-qt,
                libexif-dev,
-               libfm-qt6-dev (>= 2.3.0),
+               libfm-qt6-dev (>= 2.4.0),
                libkf6windowsystem-dev,
                liblayershellqtinterface-dev (>= 6.0.0),
                libmenu-cache-dev,
@@ -42,7 +42,7 @@ Build-Depends: debhelper-compat (= 13),
                libxcb-xv0-dev,
                libxcb-xvmc0-dev,
                libxkbcommon-dev (>= 0.5.0),
-               lxqt-build-tools (>= 2.3.0),
+               lxqt-build-tools (>= 2.4.0),
                qt6-svg-dev (>= 6.6.0),
                qt6-wayland-dev (>= 6.6.0)
 Standards-Version: 4.7.4
