@@ -7,7 +7,6 @@ Uploaders: Alf Gaida <agaida@siduction.org>,
            Shih-Yuan Lee (FourDollars) <fourdollars@gmail.com>,
            Yuan CHAO <yuanchao@gmail.com>
 Section: x11
-Priority: optional
 Build-Depends: debhelper-compat (= 13),
                layer-shell-qt,
                libexif-dev,
@@ -46,7 +45,7 @@ Build-Depends: debhelper-compat (= 13),
                lxqt-build-tools (>= 2.3.0),
                qt6-svg-dev (>= 6.6.0),
                qt6-wayland-dev (>= 6.6.0)
-Standards-Version: 4.7.3
+Standards-Version: 4.7.4
 Vcs-Browser: https://git.lubuntu.me/Lubuntu/pcmanfm-qt-packaging
 Vcs-Git: https://git.lubuntu.me/Lubuntu/pcmanfm-qt-packaging.git
 Debian-Vcs-Browser: https://salsa.debian.org/lxqt-team/pcmanfm-qt
