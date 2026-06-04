@@ -56,7 +56,7 @@ Package: pcmanfm-qt
 Architecture: any
 Depends: default-dbus-session-bus | dbus-session-bus | dbus-x11,
          desktop-file-utils,
-         libfm-qt6-16,
+         libfm-qt6-17,
          lxqt-sudo,
          ${misc:Depends},
          ${shlibs:Depends}
